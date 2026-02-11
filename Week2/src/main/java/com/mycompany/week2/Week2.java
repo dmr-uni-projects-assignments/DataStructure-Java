@@ -11,6 +11,7 @@ package com.mycompany.week2;
 public class Week2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        PrimitiveReferencePlayground obj = new PrimitiveReferencePlayground();
+        obj.main(args);
     }
 }

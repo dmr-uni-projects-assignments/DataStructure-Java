@@ -68,35 +68,39 @@ public class PrimitiveReferencePlayground {
         System.out.println("Try: change b, a stays the same because primitives copy the value.");
 
         int[] x = {10, 20};
-        int[] y = x;     // alias (reference copy)
+        int[] y = x.clone();     // alias (reference copy)
         y[0] = 99;
 
         System.out.println("Reference: x=" + Arrays.toString(x));
         System.out.println("Reference: y=" + Arrays.toString(y));
         System.out.println("Try: x changes when you modify y, because both refer to the same array.");
 
-        // TODO (student play): replace `int[] y = x;` with `int[] y = x.clone();` and rerun.
     }
 
     // ------------------------------------------------------------
     // LAB 2: == vs equals (String)
     // ------------------------------------------------------------
-    static void lab2() {
-        System.out.println("\n[Lab 2] == vs equals (String)");
+        static void lab2() {
+            System.out.println("\n[Lab 2] == vs equals (String)");
 
-        String s1 = "AI";
-        String s2 = "AI";
-        String s3 = new String("AI");
+            String s1 = new String("AI");
+            String s2 = new String("AI");
+            String s3 = new String("AI");
 
-        System.out.println("s1 == s2      : " + (s1 == s2));
-        System.out.println("s1 == s3      : " + (s1 == s3));
-        System.out.println("s1.equals(s3) : " + (s1.equals(s3)));
+            System.out.println("s1 == s2      : " + (s1 == s2));
+            System.out.println("s1 == s3      : " + (s1 == s3));
+            System.out.println("s1.equals(s3) : " + (s1.equals(s3)));
 
-        // TODO (student play):
-        // 1) Replace "AI" with a longer string.
-        // 2) Try: String s2 = new String("AI");
-        // 3) Discuss: what does == compare? what does equals compare?
-    }
+            // TODO (student play):
+            // 1) Replace "AI" with a longer string.
+            // 2) Try: String s2 = new String("AI");
+            // 3) Discuss: what does == compare? what does equals compare?
+            
+            // 1. The s1 == s2 evaluates to false
+            // 2. The == fails. It evaluates to false.
+            // 3. equals is part of the String class. It compares the contents of the current string to the one passed as the parameter. Without calling the constructor, Java stores the string in a "dictionary" and refers to the same entry if two strings contain the same text.
+            // So, the == operator compares JUST THE pointer to that entry. When two string objects (not literals) are compared with ==, it will always be false since it's a different pointer. 
+        }
 
     // ------------------------------------------------------------
     // LAB 3: Pass-by-value trick
