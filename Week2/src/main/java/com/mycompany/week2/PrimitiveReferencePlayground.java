@@ -91,7 +91,6 @@ public class PrimitiveReferencePlayground {
             System.out.println("s1 == s3      : " + (s1 == s3));
             System.out.println("s1.equals(s3) : " + (s1.equals(s3)));
 
-            // TODO (student play):
             // 1) Replace "AI" with a longer string.
             // 2) Try: String s2 = new String("AI");
             // 3) Discuss: what does == compare? what does equals compare?
@@ -111,6 +110,9 @@ public class PrimitiveReferencePlayground {
         int x = 5;
         changeInt(x);
         System.out.println("After changeInt(x), x = " + x);
+        
+        reassignInt(x);
+        System.out.println("After reassignInt(x), x = " + x);
 
         int[] a = {1, 2, 3};
         changeArray(a);
@@ -119,9 +121,11 @@ public class PrimitiveReferencePlayground {
         reassignArray(a);
         System.out.println("After reassignArray(a), a = " + Arrays.toString(a));
 
-        // TODO (student play):
         // Write reassignInt(int n) { n = 123; } and test if caller changes.
+        // It does not change. It's the same as changeInt, and changes the copy of n that is created during the function call. The caller's variable is left untouched. 
     }
+    
+    static void reassignInt(int n) { n = 123; } 
 
     static void changeInt(int n) {
         n = 999;
